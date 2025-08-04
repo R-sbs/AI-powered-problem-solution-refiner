@@ -1,25 +1,20 @@
 {
-  "name": "ai-powered-problem-solution-refiner",
+  "name": "server",
   "version": "1.0.0",
   "description": "",
-  "workspaces": [
-    "apps/client",
-    "apps/server"
-  ],
   "main": "index.js",
+  "type": "module",
   "scripts": {
-    "build": "npm --prefix apps/client run build && cp -r apps/client/dist apps/server/public"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/R-sbs/AI-powered-problem-solution-refiner.git"
+    "start": "node index.js",
+    "postinstall": "cd client && npm install && npm run build"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "commonjs",
-  "bugs": {
-    "url": "https://github.com/R-sbs/AI-powered-problem-solution-refiner/issues"
-  },
-  "homepage": "https://github.com/R-sbs/AI-powered-problem-solution-refiner#readme"
+  "dependencies": {
+    "@google/generative-ai": "^0.24.1",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.1",
+    "express": "^5.1.0"
+  }
 }

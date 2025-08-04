@@ -8,7 +8,7 @@ import { GoogleGenerativeAI } from "@google/generative-ai";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-dotenv.config({ path: path.resolve(__dirname, "../.env") });
+dotenv.config();
 
 const app = express();
 
@@ -16,7 +16,7 @@ app.use(cors());
 app.use(express.json());
 
 // Serve static files from the 'client' directory
-app.use(express.static(path.join(__dirname, "client")));
+app.use(express.static(path.join(__dirname, "client", "dist")));
 
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
 
@@ -58,7 +58,7 @@ ${text}
 });
 
 app.get("/", (_, res) => {
-  res.sendFile(path.join(__dirname, "client", "index.html"));
+  res.sendFile(path.join(__dirname, "client", "dist", "index.html"));
 });
 
 const PORT = process.env.PORT || 3001;
