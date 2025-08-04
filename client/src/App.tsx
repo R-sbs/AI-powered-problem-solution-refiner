@@ -6,7 +6,7 @@ function App() {
   return (
     <div className="min-h-screen flex flex-col justify-between">
       {/* Header */}
-      <header className="w-full flex flex-col items-center text-center px-4 py-8 max-w-4xl mx-auto">
+      <header className="w-full flex flex-col items-center text-center px-4 py-6 sm:py-8 max-w-4xl mx-auto">
         <a
           href="https://predictgrowth.ai/"
           target="_blank"
@@ -15,13 +15,13 @@ function App() {
           <img
             src="/pg.png"
             alt="PredictGrowth Logo"
-            className="w-20 h-20 mb-4"
+            className="w-16 h-16 sm:w-20 sm:h-20 mb-4"
           />
         </a>
-        <h1 className="text-3xl md:text-4xl font-bold mb-4">
+        <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4 leading-tight">
           AI-Powered Problem–Solution Refiner
         </h1>
-        <p className="text-gray-500 text-sm max-w-2xl">
+        <p className="text-gray-600 text-sm sm:text-base max-w-2xl">
           This app helps you improve how you describe a problem and its solution
           — whether you're building a startup, pitching an idea, or working on a
           project. Simply write your statements, choose a point of view
@@ -32,7 +32,7 @@ function App() {
       </header>
 
       {/* Main */}
-      <main className="flex-grow flex justify-center px-4 py-8">
+      <main className="flex-grow flex justify-center px-4 py-6 sm:py-8">
         <div className="w-full max-w-xl">
           <ConfigProvider
             theme={{
@@ -47,16 +47,16 @@ function App() {
       </main>
 
       {/* Footer */}
-      <footer className="bg-black p-3 text-white text-sm flex justify-between items-center">
+      <footer className="bg-black p-3 sm:p-4 text-white text-sm flex flex-col sm:flex-row justify-center sm:justify-between items-center gap-2">
         <a
           href="https://github.com/R-sbs/AI-powered-problem-solution-refiner"
           className="hover:underline"
         >
           See On Github
         </a>
-        <p className="text-sm cursor-none">
+        <p className="text-xs sm:text-sm text-center sm:text-right">
           Predict Growth AI{" "}
-          <span className="px-4">{new Date().getFullYear()}</span>
+          <span className="px-2">{new Date().getFullYear()}</span>
         </p>
       </footer>
     </div>

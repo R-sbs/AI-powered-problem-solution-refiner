@@ -98,12 +98,14 @@ export default function Home() {
       {contextHolder}
       <Form
         onFinish={handleSubmit(handleGenerate)}
-        className="p-6 space-y-4 min-w-2xl"
+        className="p-6 space-y-6"
         layout="vertical"
       >
-        <div className="flex justify-between items-center">
+        {/* Top section: Perspective + Generate button */}
+        <div className="flex flex-col md:flex-row md:justify-between md:items-end gap-4">
           {/* Investor type */}
           <Form.Item
+            className="w-full md:w-2/3"
             label={<span className="font-medium">Perspective</span>}
             validateStatus={errors.perspective ? "error" : ""}
             help={errors.perspective?.message}
@@ -116,24 +118,23 @@ export default function Home() {
                   {...field}
                   options={options}
                   placeholder="Select a perspective"
-                  className="mt-1 w-full min-w-64"
+                  className="w-full"
                 />
               )}
             />
           </Form.Item>
 
-          <div className="text-right">
-            <Button
-              type="primary"
-              onClick={handleSubmit(handleGenerate)}
-              disabled={!isValid}
-            >
-              Generate Final View
-            </Button>
-          </div>
+          <Button
+            type="primary"
+            onClick={handleSubmit(handleGenerate)}
+            disabled={!isValid}
+            className="w-full md:w-auto"
+          >
+            Generate Final View
+          </Button>
         </div>
-        {/* Problem statement */}
 
+        {/* Problem Statement */}
         <Form.Item
           label={<span className="font-semibold">Problem Statement</span>}
           validateStatus={errors.problem ? "error" : ""}
@@ -147,17 +148,17 @@ export default function Home() {
                 {...field}
                 rows={4}
                 placeholder="Describe the problem here..."
-                className="mt-1 w-full p-2 border rounded resize-none"
+                className="w-full p-2 border rounded resize-none"
               />
             )}
           />
         </Form.Item>
 
-        <div className="text-right">
+        <div className="flex justify-end">
           <Button
             type="primary"
             onClick={() => handleImprove("problem")}
-            className="px-4 py-2 ml-auto"
+            className="px-4 py-2"
             loading={loading.problem}
             disabled={loading.problem}
           >
@@ -165,7 +166,7 @@ export default function Home() {
           </Button>
         </div>
 
-        {/* Solution statement */}
+        {/* Solution Statement */}
         <Form.Item
           label={<span className="font-medium">Solution Statement</span>}
           validateStatus={errors.solution ? "error" : ""}
@@ -179,16 +180,16 @@ export default function Home() {
                 {...field}
                 rows={4}
                 placeholder="Describe the Solution here..."
-                className="mt-1 w-full p-2 border rounded resize-none"
+                className="w-full p-2 border rounded resize-none"
               />
             )}
           />
         </Form.Item>
 
-        <div className="text-right">
+        <div className="flex justify-end">
           <Button
-            onClick={() => handleImprove("solution")}
             type="primary"
+            onClick={() => handleImprove("solution")}
             loading={loading.solution}
             disabled={loading.solution}
           >
